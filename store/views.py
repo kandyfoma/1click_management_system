@@ -33,7 +33,7 @@ def create_supplier(request):
         if forms.is_valid():
             name = forms.cleaned_data['name']
             address = forms.cleaned_data['address']
-            Supplier.objects.create(name=name, address=address, created_by=request.user)
+            Supplier.objects.create(name=name, address=address)
             return redirect('supplier-list')
     context = {
         'form': forms
