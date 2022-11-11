@@ -60,7 +60,7 @@ class DepartmentAdmin(admin.ModelAdmin):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'sortno', 'price', 'created_by', 'created_date']
+    list_display = ['name', 'price', 'created_by', 'created_date']
     readonly_fields = ('created_by', 'updated_by', 'created_date')
 
     def save_model(self, request, obj, form, change):

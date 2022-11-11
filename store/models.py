@@ -39,7 +39,6 @@ class Department(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=120, unique=True)
-    sortno = models.PositiveIntegerField()
     price = models.PositiveIntegerField()
     created_date = models.DateField(auto_now_add=True)
     created_by = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
@@ -74,7 +73,7 @@ class Order(models.Model):
                                    related_name='updated_by_order')
 
     def __str__(self):
-        return self.product.name
+        return 'Product: {}'.format(self.product.name)
 
 
 class Delivery(models.Model):

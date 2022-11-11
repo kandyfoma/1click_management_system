@@ -41,10 +41,9 @@ class DepartmentForm(forms.ModelForm):
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'sortno', 'price']
+        fields = ['name', 'price']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'id': 'name'}),
-            'sortno': forms.NumberInput(attrs={'class': 'form-control', 'id': 'sortno'}),
             'price': forms.NumberInput(attrs={'class': 'form-control', 'id': 'price'})
         }
 
