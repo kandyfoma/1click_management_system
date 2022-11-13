@@ -73,7 +73,7 @@ class Order(models.Model):
                                    related_name='updated_by_order')
 
     def __str__(self):
-        return 'Product: {}'.format(self.product.name)
+        return self.product.name
 
 
 class Delivery(models.Model):
