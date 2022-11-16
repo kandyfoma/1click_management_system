@@ -1,8 +1,8 @@
 from django.urls import path
 
 from .views import (
-    create_supplier,
-    create_season,
+    create_revendeur,
+    create_saison,
     create_department,
     create_product,
     create_order,
@@ -11,8 +11,8 @@ from .views import (
     update_stock,
     update_product,
 
-    SupplierListView,
-    SeasonListView,
+    RevendeurListView,
+    SaisonListView,
     DepartmentListView,
     ProductListView,
     OrderListView,
@@ -21,22 +21,22 @@ from .views import (
 )
 
 urlpatterns = [
-    path('create-supplier/', create_supplier, name='create-supplier'),
-    path('create-season/', create_season, name='create-season'),
+    path('create-revendeur/', create_revendeur, name='create-revendeur'),
+    path('create-season/', create_saison, name='create-saison'),
     path('create-department/', create_department, name='create-department'),
-    path('create-product/', create_product, name='create-product'),
-    path('create-order/', create_order, name='create-order'),
+    path('create-produit/', create_product, name='create-produit'),
+    path('create-commande/', create_order, name='create-commande'),
 
     path('update-delivery/<int:id>/', update_delivery, name='update-delivery'),
-    path('update-product/<int:id>/', update_product, name='update-product'),
-    path('update-order/<int:id>/', update_order, name='update-order'),
+    path('update-produit/<int:id>/', update_product, name='update-produit'),
+    path('update-commande/<int:id>/', update_order, name='update-commande'),
     path('update-stock/<int:id>/', update_stock, name='update-stock'),
 
-    path('supplier-list/', SupplierListView.as_view(), name='supplier-list'),
-    path('season-list/', SeasonListView.as_view(), name='season-list'),
+    path('revendeur-list/', RevendeurListView.as_view(), name='revendeur-list'),
+    path('season-list/', SaisonListView.as_view(), name='saison-list'),
     path('department-list/', DepartmentListView.as_view(), name='department-list'),
-    path('product-list/', ProductListView.as_view(), name='product-list'),
-    path('order-list/', OrderListView.as_view(), name='order-list'),
+    path('produit-list/', ProductListView.as_view(), name='produit-list'),
+    path('commande-list/', OrderListView.as_view(), name='commande-list'),
     path('delivery-list/', DeliveryListView.as_view(), name='delivery-list'),
     path('stock-list/', StockListView.as_view(), name='stock-list'),
 ]

@@ -43,7 +43,7 @@
                             <thead>
                             <tr>
                                 <th class="serial">#</th>
-                                <th>Product</th>
+                                <th>Produit</th>
                                 <th>Monthly Stock</th>
                                 <th>Availability</th>
                                 <th>Date</th>
@@ -59,7 +59,7 @@
                                         <td>{{ stock.initial_in_stock }}</td>
                                         <td>{{ stock.availability }}</td>
                                         <td>{{ stock.created_date }}</td>
-                                        <td><a class="btn btn-dark" href="{% url 'update-stock' stock.id %}">Update
+                                        <td><a class="btn btn-dark" href="{% url 'update-stock' stock.id %}">Mise à jour
                                             Stock</a></td>
                                     </tr>
                                 {% endfor %}

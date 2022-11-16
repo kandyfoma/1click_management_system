@@ -3,17 +3,17 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse" style="background: black">
             <ul class="nav navbar-nav">
                 <li class="active" style="background: black">
-                    <a href="{% url 'dashboard' %}"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                    <a href="{% url 'dashboard' %}"><i class="menu-icon fa fa-laptop"></i>Tableau De Bord</a>
                 </li>
-                <li class="menu-title" style="color: white">My Store</li><!-- /.menu-title -->
+                <li class="menu-title" style="color: white">Mon Espace</li><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
-                    <a href="{% url 'supplier-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Supplier</a>
+                    <a href="{% url 'revendeur-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-user"></i>Revendeur</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-plus-circle" style="color: darkblue"></i><a
-                                href="{% url 'create-supplier' %}">Add</a></li>
+                                href="{% url 'create-revendeur' %}">Ajouter</a></li>
                         <li><i class="fa fa-eye" style="color: darkblue"></i><a
-                                href="{% url 'supplier-list' %}">View</a></li>
+                                href="{% url 'revendeur-list' %}">Consulter Liste</a></li>
                     </ul>
                 </li>
 
@@ -21,63 +21,63 @@
 {#                    <a href="{% url 'buyer-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"#}
 {#                       aria-expanded="false"> <i class="menu-icon fa fa-users"></i>Buyer</a>#}
 {#                    <ul class="sub-menu children dropdown-menu">#}
-{#                        <li><i class="fa fa-plus-circle" style="color: darkblue"></i><a href="{% url 'create-buyer' %}">Add</a>#}
+{#                        <li><i class="fa fa-plus-circle" style="color: darkblue"></i><a href="{% url 'create-buyer' %}">Ajouter</a>#}
 {#                        </li>#}
-{#                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'buyer-list' %}">View</a>#}
+{#                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'buyer-list' %}">Consulter Liste</a>#}
 {#                        </li>#}
 {#                    </ul>#}
 {#                </li>#}
 
                 <li class="menu-item-has-children dropdown">
-                    <a href="{% url 'season-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-calendar"></i>Season</a>
+                    <a href="{% url 'saison-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-calendar"></i>Saison</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-plus-circle" style="color: darkblue"></i><a
-                                href="{% url 'create-season' %}">Add</a></li>
-                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'season-list' %}">View</a>
+                                href="{% url 'create-saison' %}">Ajouter</a></li>
+                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'saison-list' %}">Consulter Liste</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="menu-item-has-children dropdown">
                     <a href="{% url 'create-department' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-tags"></i>Department</a>
+                       aria-expanded="false"> <i class="menu-icon fa fa-tags"></i>Departement</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus-circle" style="color: darkblue"></i><a href="{% url 'create-department' %}">Add</a>
+                        <li><i class="fa fa-plus-circle" style="color: darkblue"></i><a href="{% url 'create-department' %}">Ajouter</a>
                         </li>
-                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'department-list' %}">View</a>
+                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'department-list' %}">Consulter Liste</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="menu-item-has-children dropdown">
-                    <a href="{% url 'product-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-list"></i>Product</a>
+                    <a href="{% url 'produit-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-list"></i>Produit</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-plus-circle" style="color: darkblue"></i><a
-                                href="{% url 'create-product' %}">Add</a></li>
-                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'product-list' %}">View</a>
+                                href="{% url 'create-produit' %}">Ajouter</a></li>
+                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'produit-list' %}">Consulter Liste</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="menu-item-has-children dropdown">
-                    <a href="{% url 'order-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Order</a>
+                    <a href="{% url 'commande-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>Commande</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-plus-circle" style="color: darkblue"></i><a href="{% url 'create-order' %}">Add</a>
+                        <li><i class="fa fa-plus-circle" style="color: darkblue"></i><a href="{% url 'create-commande' %}">Ajouter</a>
                         </li>
-                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'order-list' %}">View</a>
+                        <li><i class="fa fa-eye" style="color: darkblue"></i><a href="{% url 'commande-list' %}">Consulter Liste</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="menu-item-has-children dropdown">
                     <a href="{% url 'delivery-list' %}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Delivery</a>
+                       aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Livraison</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-eye" style="color: darkblue"></i><a
-                                href="{% url 'delivery-list' %}">View</a></li>
+                                href="{% url 'delivery-list' %}">Consulter Liste</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
@@ -85,7 +85,7 @@
                        aria-expanded="false"> <i class="menu-icon fa fa-truck"></i>Stock</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="fa fa-eye" style="color: darkblue"></i><a
-                                href="{% url 'stock-list' %}">View</a></li>
+                                href="{% url 'stock-list' %}">Consulter Liste</a></li>
                     </ul>
                 </li>
             </ul>

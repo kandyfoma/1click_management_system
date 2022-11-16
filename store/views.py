@@ -5,18 +5,18 @@ from django.contrib.auth.decorators import login_required
 
 from users.models import User
 from .models import (
-    Supplier,
-    Season,
-    Department,
-    Product,
-    Order,
+    Revendeur,
+    Saison,
+    Departement,
+    Produit,
+    Commande,
     Delivery,
     Stock
 )
 from .forms import (
-    SupplierForm,
-    SeasonForm,
-    DepartmentForm,
+    RevendeurForm,
+    SaisonForm,
+    DepartementForm,
     ProductForm,
     OrderForm,
     DeliveryForm,
@@ -24,56 +24,56 @@ from .forms import (
     OrderUpdateForm)
 
 
-# Supplier views
+# Revendeur views
 @login_required(login_url='login')
-def create_supplier(request):
-    forms = SupplierForm()
+def create_revendeur(request):
+    forms = RevendeurForm()
     if request.method == 'POST':
-        forms = SupplierForm(request.POST)
+        forms = RevendeurForm(request.POST)
         if forms.is_valid():
-            name = forms.cleaned_data['name']
-            address = forms.cleaned_data['address']
-            Supplier.objects.create(name=name, address=address)
-            return redirect('supplier-list')
+            nom = forms.cleaned_data['nom']
+            adresse = forms.cleaned_data['adresse']
+            Revendeur.objects.create(nom=nom, adresse=adresse)
+            return redirect('revendeur-list')
     context = {
         'form': forms
     }
     return render(request, 'store/addSupplier.html', context)
 
 
-class SupplierListView(ListView):
-    model = Supplier
-    template_name = 'store/supplier_list.html'
-    context_object_name = 'supplier'
+class RevendeurListView(ListView):
+    model = Revendeur
+    template_nom = 'store/revendeur_list.html'
+    context_object_nom = 'revendeur'
 
 
-# Season views
+# saison views
 @login_required(login_url='login')
-def create_season(request):
-    forms = SeasonForm()
+def create_saison(request):
+    forms = SaisonForm()
     if request.method == 'POST':
-        forms = SeasonForm(request.POST)
+        forms = SaisonForm(request.POST)
         if forms.is_valid():
             forms.save()
-            return redirect('season-list')
+            return redirect('saison-list')
     context = {
         'form': forms
     }
     return render(request, 'store/addSeason.html', context)
 
 
-class SeasonListView(ListView):
-    model = Season
-    template_name = 'store/season_list.html'
-    context_object_name = 'season'
+class SaisonListView(ListView):
+    model = Saison
+    template_nom = 'store/saison_list.html'
+    context_object_nom = 'saison'
 
 
 # Drop views
 @login_required(login_url='login')
 def create_department(request):
-    forms = DepartmentForm()
+    forms = DepartementForm()
     if request.method == 'POST':
-        forms = DepartmentForm(request.POST)
+        forms = DepartementForm(request.POST)
         if forms.is_valid():
             forms.save()
             return redirect('department-list')
@@ -84,12 +84,12 @@ def create_department(request):
 
 
 class DepartmentListView(ListView):
-    model = Department
-    template_name = 'store/category_list.html'
-    context_object_name = 'drop'
+    model = Departement
+    template_nom = 'store/category_list.html'
+    context_object_nom = 'drop'
 
 
-# Product views
+# Produit views
 @login_required(login_url='login')
 def create_product(request):
     forms = ProductForm()
@@ -105,33 +105,33 @@ def create_product(request):
 
 
 class ProductListView(ListView):
-    model = Product
-    template_name = 'store/product_list.html'
-    context_object_name = 'product'
+    model = Produit
+    template_nom = 'store/product_list.html'
+    context_object_nom = 'produit'
 
 
-# Order views
+# Commande views
 @login_required(login_url='login')
 def create_order(request):
     forms = OrderForm()
     if request.method == 'POST':
         forms = OrderForm(request.POST)
         if forms.is_valid():
-            supplier = forms.cleaned_data['supplier']
-            product = forms.cleaned_data['product']
-            amount = forms.cleaned_data['amount']
-            order_number = forms.cleaned_data['order_number']
+            revendeur = forms.cleaned_data['revendeur']
+            product = forms.cleaned_data['produit']
+            amount = forms.cleaned_data['montant']
+            order_number = forms.cleaned_data['numero_reference']
             department = forms.cleaned_data['department']
-            season = forms.cleaned_data['season']
-            created_by = request.user
-            Order.objects.create(
-                supplier=supplier,
+            saison = forms.cleaned_data['saison']
+            cree_par = request.user
+            Commande.objects.create(
+                revendeur=revendeur,
                 product=product,
                 amount=amount,
                 order_number=order_number,
                 department=department,
-                season=season,
-                created_by=created_by,
+                saison=saison,
+                cree_par=cree_par,
                 status='pending'
             )
             return redirect('order-list')
@@ -141,13 +141,13 @@ def create_order(request):
     return render(request, 'store/addOrder.html', context)
 
 
-# Update Order details
+# Update Commande details
 @login_required(login_url='login')
 def update_order(request, id):
     # dictionary for initial data with
-    # field names as keys
+    # field noms as keys
     # fetch the object related to passed id
-    obj = get_object_or_404(Order, id=id)
+    obj = get_object_or_404(Commande, id=id)
     form = OrderUpdateForm(request.POST or None, instance=obj)
 
     # pass the object as instance in form
@@ -165,12 +165,12 @@ def update_order(request, id):
 
 
 class OrderListView(ListView):
-    model = Order
-    template_name = 'store/order_list.html'
+    model = Commande
+    template_nom = 'store/order_list.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['order'] = Order.objects.all().order_by('-product')
+        context['commande'] = Commande.objects.all().order_by('-produit')
         return context
 
 
@@ -178,7 +178,7 @@ class OrderListView(ListView):
 @login_required(login_url='login')
 def update_delivery(request, id):
     # dictionary for initial data with
-    # field names as keys
+    # field noms as keys
     # fetch the object related to passed id
     obj = get_object_or_404(Delivery, id=id)
     form = DeliveryForm(request.POST or None, instance=obj)
@@ -199,15 +199,15 @@ def update_delivery(request, id):
 
 class DeliveryListView(ListView):
     model = Delivery
-    template_name = 'store/delivery_list.html'
-    context_object_name = 'delivery'
+    template_nom = 'store/delivery_list.html'
+    context_object_nom = 'delivery'
 
 
 # Update Stock details
 @login_required(login_url='login')
 def update_stock(request, id):
     # dictionary for initial data with
-    # field names as keys
+    # field noms as keys
     # fetch the object related to passed id
     obj = get_object_or_404(Stock, id=id)
     form = StockForm(request.POST or None, instance=obj)
@@ -226,11 +226,11 @@ def update_stock(request, id):
     return render(request, 'store/updateStock.html', {'form': form})
 
 
-# Update Product details
+# Update Produit details
 @login_required(login_url='login')
 def update_product(request, id):
     # dictionary for initial data with
-    # field names as keys
+    # field noms as keys
     # fetch the object related to passed id
     obj = get_object_or_404(Stock, id=id)
     form = ProductForm(request.POST or None, instance=obj)
@@ -251,5 +251,5 @@ def update_product(request, id):
 
 class StockListView(ListView):
     model = Stock
-    template_name = 'store/stock_list.html'
-    context_object_name = 'stock'
+    template_nom = 'store/stock_list.html'
+    context_object_nom = 'stock'

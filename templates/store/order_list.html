@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load mathfilters %}
 
-{% block title %}Order List{% endblock title %}
+{% block title %}Commande List{% endblock title %}
 
 {% block breadcrumbs %}
     <div class="breadcrumbs">
@@ -19,7 +19,7 @@
                         <div class="page-title">
                             <ol class="breadcrumb text-right">
                                 <li><a href="#">Dashboard</a></li>
-                                <li><a href="#">Order</a></li>
+                                <li><a href="#">Commande</a></li>
                                 <li class="active">List</li>
                             </ol>
                         </div>
@@ -35,7 +35,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="box-title">Order List </h4>
+                    <h4 class="box-title">Commande List </h4>
                 </div>
                 <div class="card-body--">
                     <div class="table-stats order-table ov-h">
@@ -47,7 +47,7 @@
                                 <th>Amount</th>
                                 <th>Unit Price</th>
                                 <th>Total Price</th>
-                                <th>Order Number</th>
+                                <th>Commande Number</th>
                                 <th>Season</th>
                                 <th>Category</th>
                                 <th>Supplier</th>
@@ -61,14 +61,14 @@
                                 {% for order in order %}
                                     <tr>
                                         <td class="serial">{{ forloop.counter }}</td>
-                                        <td>{{ order.product }}</td>
-                                        <td>{{ order.amount }}</td>
-                                        <td>CDF {{ order.product.price }}</td>
-                                        <td>CDF {{ order.product.price |mul:order.amount }}</td>
-                                        <td>{{ order.order_number }}</td>
+                                        <td>{{ order.produit }}</td>
+                                        <td>{{ order.montant }}</td>
+                                        <td>CDF {{ order.produit.price }}</td>
+                                        <td>CDF {{ order.produit.price |mul:order.montant }}</td>
+                                        <td>{{ order.numero_reference }}</td>
                                         <td>{{ order.season }}</td>
                                         <td>{{ order.department }}</td>
-                                        <td>{{ order.supplier }}</td>
+                                        <td>{{ order.revendeur }}</td>
                                         <td>{{ order.created_date }}</td>
                                         <td>
                                             {% if order.status == 'pending' %}
@@ -86,17 +86,17 @@
                                             {% endif %}
                                         </td>
                                         {% if not order.status == 'complete' %}
-                                            <td><a class="btn btn-dark" href="{% url 'update-order' order.id %}">Update
-                                                Order</a></td>
+                                            <td><a class="btn btn-dark" href="{% url 'update-order' order.id %}">Mise à jour
+                                                Commande</a></td>
                                         {% else %}
-                                            <td><a class="btn btn-light" href="" disabled>Order
+                                            <td><a class="btn btn-light" href="" disabled>Commande
                                                 Delivered</a></td>
                                         {% endif %}
                                     </tr>
                                 {% endfor %}
                             {% else %}
                                 <tr>
-                                    <td>No Order Data</td>
+                                    <td>No Commande Data</td>
                                 </tr>
                             {% endif %}
                             </tbody>

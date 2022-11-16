@@ -1,79 +1,79 @@
 from django import forms
 
-from .models import Season, Department, Product, Order, Delivery, Stock
+from .models import Saison, Departement, Produit, Commande, Delivery, Stock
 
 
-class SupplierForm(forms.Form):
-    name = forms.CharField(widget=forms.TextInput(attrs={
+class RevendeurForm(forms.Form):
+    nom = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'id': 'name',
+        'id': 'nom',
         'data-val': 'true',
-        'data-val-required': 'Please enter name',
+        'data-val-required': 'Veillez completer nom',
     }))
-    address = forms.CharField(widget=forms.TextInput(attrs={
+    adresse = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control',
-        'id': 'address',
+        'id': 'adresse',
         'data-val': 'true',
-        'data-val-required': 'Please enter address',
+        'data-val-required': 'Veillez completer adresse',
     }))
 
 
-class SeasonForm(forms.ModelForm):
+class SaisonForm(forms.ModelForm):
     class Meta:
-        model = Season
-        fields = ['name', 'description']
+        model = Saison
+        fields = ['nom', 'description']
 
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'id': 'name'}),
+            'nom': forms.TextInput(attrs={'class': 'form-control', 'id': 'nom'}),
             'description': forms.TextInput(attrs={'class': 'form-control', 'id': 'description'})
         }
 
 
-class DepartmentForm(forms.ModelForm):
+class DepartementForm(forms.ModelForm):
     class Meta:
-        model = Department
-        fields = ['name']
+        model = Departement
+        fields = ['nom']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'id': 'name'})
+            'nom': forms.TextInput(attrs={'class': 'form-control', 'id': 'nom'})
         }
 
 
 class ProductForm(forms.ModelForm):
     class Meta:
-        model = Product
-        fields = ['name', 'price']
+        model = Produit
+        fields = ['nom', 'prix']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'id': 'name'}),
-            'price': forms.NumberInput(attrs={'class': 'form-control', 'id': 'price'})
+            'nom': forms.TextInput(attrs={'class': 'form-control', 'id': 'nom'}),
+            'prix': forms.NumberInput(attrs={'class': 'form-control', 'id': 'prix'})
         }
 
 
 class OrderForm(forms.ModelForm):
     class Meta:
-        model = Order
-        fields = ['supplier', 'product', 'amount', 'order_number', 'department', 'season']
+        model = Commande
+        fields = ['revendeur', 'produit', 'montant', 'numero_reference', 'departement', 'saison']
 
         widgets = {
-            'supplier': forms.Select(attrs={'class': 'form-control', 'id': 'supplier'}),
-            'product': forms.Select(attrs={'class': 'form-control', 'id': 'product'}),
-            'amount': forms.NumberInput(attrs={'class': 'form-control', 'id': 'amount'}),
-            'order_number': forms.NumberInput(attrs={'class': 'form-control', 'id': 'order_number'}),
-            'department': forms.Select(attrs={'class': 'form-control', 'id': 'department'}),
-            'season': forms.Select(attrs={'class': 'form-control', 'id': 'season'}),
+            'revendeur': forms.Select(attrs={'class': 'form-control', 'id': 'revendeur'}),
+            'produit': forms.Select(attrs={'class': 'form-control', 'id': 'produit'}),
+            'montant': forms.NumberInput(attrs={'class': 'form-control', 'id': 'montant'}),
+            'numero_reference': forms.NumberInput(attrs={'class': 'form-control', 'id': 'numero_reference'}),
+            'departement': forms.Select(attrs={'class': 'form-control', 'id': 'departement'}),
+            'saison': forms.Select(attrs={'class': 'form-control', 'id': 'saison'}),
         }
 
 
 class OrderUpdateForm(forms.ModelForm):
     class Meta:
-        model = Order
-        fields = ['supplier', 'product', 'amount', 'department', 'season', 'status']
+        model = Commande
+        fields = ['revendeur', 'produit', 'montant', 'departement', 'saison', 'status']
 
         widgets = {
-            'supplier': forms.Select(attrs={'class': 'form-control', 'id': 'supplier'}),
-            'product': forms.Select(attrs={'class': 'form-control', 'id': 'product'}),
-            'amount': forms.NumberInput(attrs={'class': 'form-control', 'id': 'amount'}),
-            'season': forms.Select(attrs={'class': 'form-control', 'id': 'season'}),
-            'department': forms.Select(attrs={'class': 'form-control', 'id': 'department'}),
+            'revendeur': forms.Select(attrs={'class': 'form-control', 'id': 'revendeur'}),
+            'produit': forms.Select(attrs={'class': 'form-control', 'id': 'produit'}),
+            'montant': forms.NumberInput(attrs={'class': 'form-control', 'id': 'montant'}),
+            'saison': forms.Select(attrs={'class': 'form-control', 'id': 'saison'}),
+            'departement': forms.Select(attrs={'class': 'form-control', 'id': 'departement'}),
             'status': forms.Select(attrs={'class': 'form-control', 'id': 'status'}),
         }
 
@@ -84,17 +84,17 @@ class DeliveryForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'order': forms.Select(attrs={'readonly': 'readonly', 'class': 'form-control', 'id': 'order'}),
-            'courier_name': forms.TextInput(attrs={'class': 'form-control', 'id': 'courier_name'}),
+            'commande': forms.Select(attrs={'readonly': 'readonly', 'class': 'form-control', 'id': 'commande'}),
+            'courier_nom': forms.TextInput(attrs={'class': 'form-control', 'id': 'courier_nom'}),
         }
 
 
 class StockForm(forms.ModelForm):
     class Meta:
         model = Stock
-        fields = ['product', 'availability']
+        fields = ['produit', 'disponibilite']
 
         widgets = {
-            'product': forms.Select(attrs={'class': 'form-control', 'id': 'product'}),
-            'availability': forms.NumberInput(attrs={'class': 'form-control', 'id': 'availability'}),
+            'produit': forms.Select(attrs={'class': 'form-control', 'id': 'produit'}),
+            'disponibilite': forms.NumberInput(attrs={'class': 'form-control', 'id': 'disponibilite'}),
         }

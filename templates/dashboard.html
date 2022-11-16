@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 
-{% block title %}Dashboard{% endblock title %}
+{% block title %}Tableau De Bord{% endblock title %}
 
 {% block content %}
     <!-- Widgets  -->
@@ -16,7 +16,7 @@
                             <div class="text-left dib">
                                 <div class="stat-text"><span class="count"
                                                              style="">{{ total_in_stock }}</span></div>
-                                <div class="stat-heading">Product in Stock</div>
+                                <div class="stat-heading">Produit en Stock</div>
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         <div class="stat-content">
                             <div class="text-left dib">
                                 <div class="stat-text"><span class="count">{{ total_out_stock }}</span></div>
-                                <div class="stat-heading">Product out of Stock</div>
+                                <div class="stat-heading">Produit en Rupture de Stock</div>
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                         <div class="stat-content">
                             <div class="text-left dib">
                                 <div class="stat-text"><span class="count">{{ completed_order }}</span></div>
-                                <div class="stat-heading">Completed Order</div>
+                                <div class="stat-heading">Commande Completée</div>
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                         <div class="stat-content">
                             <div class="text-left dib">
                                 <div class="stat-text"><span class="count">{{ pending_order }}</span></div>
-                                <div class="stat-heading">Pending Order</div>
+                                <div class="stat-heading">Commande en Cours</div>
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Product out of Stock </h4>
+                        <h4 class="box-title">Produit en Rupture de Stock </h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -93,9 +93,9 @@
                                 <thead>
                                 <tr>
                                     <th class="serial">#</th>
-                                    <th>Product</th>
-                                    <th>Total Used</th>
-                                    <th>Total Available</th>
+                                    <th>Produit</th>
+                                    <th>Totale Produit Epuisser</th>
+                                    <th>Totale Produit Disponiblr</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -103,9 +103,9 @@
                                     {% for stock in out_of_stock %}
                                         <tr>
                                             <td class="serial">{{ forloop.counter }}</td>
-                                            <td>{{ stock.product }}</td>
+                                            <td>{{ stock.produit }}</td>
                                             <td>{{ stock.initial_in_stock }}</td>
-                                            <td>{{ stock.availability }}</td>
+                                            <td>{{ stock.disponibilite }}</td>
                                         </tr>
                                     {% endfor %}
                                 {% else %}
@@ -131,7 +131,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title">Pending Orders </h4>
+                        <h4 class="box-title">Commande en Cours</h4>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -139,10 +139,10 @@
                                 <thead>
                                 <tr>
                                     <th class="serial">#</th>
-                                    <th>Product</th>
-                                    <th>Supplier</th>
-                                    <th>Season</th>
-                                    <th>Department</th>
+                                    <th>Produit</th>
+                                    <th>Revendeur</th>
+                                    <th>Saison</th>
+                                    <th>Departement</th>
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>

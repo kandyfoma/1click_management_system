@@ -92,6 +92,9 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -206,8 +209,8 @@ JAZZMIN_SETTINGS = {
         # Url that gets reversed (Permissions can be added)
         {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
         # App with dropdown menu to all its models pages (Permissions checked against models)
-        {"app": "Stock"}, {"app": "Order"}, {"app": "Delivery"}, {"app": "User"},
-        {"app": "Product"},
+        {"app": "Stock"}, {"app": "Commande"}, {"app": "Delivery"}, {"app": "User"},
+        {"app": "Produit"},
         # model admin to link to (Permissions checked against model)
         {"model": "auth.User"},
 
