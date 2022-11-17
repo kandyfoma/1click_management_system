@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 
-{% block title %}Season List{% endblock title %}
+{% block title %}Season Liste{% endblock title %}
 
 {% block breadcrumbs %}
 <div class="breadcrumbs">
@@ -9,7 +9,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Tableau de Bord</h1>
                     </div>
                 </div>
             </div>
@@ -17,9 +17,9 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
+                            <li><a href="#">Tableau de Bord</a></li>
                             <li><a href="#">Season</a></li>
-                            <li class="active">List</li>
+                            <li class="active">Liste</li>
                         </ol>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
     <div class="col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="box-title">Season List </h4>
+                <h4 class="box-title">Season Liste </h4>
             </div>
             <div class="card-body--">
                 <div class="table-stats order-table ov-h">
@@ -42,23 +42,23 @@
                         <thead>
                             <tr>
                                 <th class="serial">#</th>
-                                <th>Name</th>
+                                <th>Nom</th>
                                 <th>Description</th>
                                 <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% if season %}
-                            {% for season in season %}
+                            {% if saison %}
+                            {% for saison in saison %}
                             <tr>
                                 <td class="serial">{{ forloop.counter }}</td>
-                                <td>{{ season.name }}</td>
-                                <td>{{ season.description }}</td>
-                                <td>{{ season.created_date }}</td>
+                                <td>{{ saison.nom }}</td>
+                                <td>{{ saison.description }}</td>
+                                <td>{{ saison.created_date }}</td>
                             </tr>
                             {% endfor %}
                             {% else %}
-                                <tr><td>No Season Data</td></tr>
+                                <tr><td>No Saison Data</td></tr>
                             {% endif %}
                         </tbody>
                     </table>

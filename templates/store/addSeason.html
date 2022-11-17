@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 
-{% block title %}Ajouter Season{% endblock title %}
+{% block title %}Ajouter Saison{% endblock title %}
 
 {% block breadcrumbs %}
 <div class="breadcrumbs">
@@ -9,7 +9,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
+                        <h1>Tableau de Bord</h1>
                     </div>
                 </div>
             </div>
@@ -17,8 +17,8 @@
                 <div class="page-header float-right">
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
-                            <li><a href="#">Dashboard</a></li>
-                            <li><a href="#">Season</a></li>
+                            <li><a href="#">Tableau de Bord</a></li>
+                            <li><a href="#">Saison</a></li>
                             <li class="active">Ajouter</li>
                         </ol>
                     </div>
@@ -34,7 +34,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <strong class="card-title">Ajouter Season</strong>
+                <strong class="card-title">Ajouter Saison</strong>
             </div>
             <div class="card-body">
                 <!-- Credit Card -->
@@ -43,8 +43,8 @@
                         <form action="#" method="post" novalidate="novalidate">
                             {% csrf_token %}
                             <div class="form-group">
-                                <label for="name" class="control-label mb-1">Name</label>
-                                {{ form.name }}
+                                <label for="nom" class="control-label mb-1">Nom</label>
+                                {{ form.nom }}
                             </div>
                             <div class="form-group">
                                 <label for="description" class="control-label mb-1">Description</label>
@@ -52,7 +52,7 @@
                             </div>
                             <div>
                                 <button id="payment-button" type="submit" class="btn btn-lg btn-success btn-block">
-                                    <span id="payment-button-amount">Save</span>
+                                    <span id="payment-button-amount">Enregistrer</span>
                                 </button>
                             </div>
                         </form>

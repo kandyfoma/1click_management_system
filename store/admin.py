@@ -12,7 +12,7 @@ from .models import (
 
 
 class SupplierAdmin(admin.ModelAdmin):
-    list_display = ['nom', 'address', 'created_date']
+    list_display = ['nom', 'adresse', 'created_date']
     readonly_fields = ('created_date',)
 
     def save_model(self, request, obj, form, change):

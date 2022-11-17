@@ -43,8 +43,8 @@ def create_revendeur(request):
 
 class RevendeurListView(ListView):
     model = Revendeur
-    template_nom = 'store/revendeur_list.html'
-    context_object_nom = 'revendeur'
+    template_name = 'store/supplier_list.html'
+    context_object_name = 'supplier'
 
 
 # saison views
@@ -64,8 +64,8 @@ def create_saison(request):
 
 class SaisonListView(ListView):
     model = Saison
-    template_nom = 'store/saison_list.html'
-    context_object_nom = 'saison'
+    template_name = 'store/season_list.html'
+    context_object_name = 'saison'
 
 
 # Drop views
@@ -85,8 +85,8 @@ def create_department(request):
 
 class DepartmentListView(ListView):
     model = Departement
-    template_nom = 'store/category_list.html'
-    context_object_nom = 'drop'
+    template_name = 'store/category_list.html'
+    context_object_name = 'drop'
 
 
 # Produit views
@@ -97,7 +97,7 @@ def create_product(request):
         forms = ProductForm(request.POST)
         if forms.is_valid():
             forms.save()
-            return redirect('product-list')
+            return redirect('produit-list')
     context = {
         'form': forms
     }
@@ -106,8 +106,8 @@ def create_product(request):
 
 class ProductListView(ListView):
     model = Produit
-    template_nom = 'store/product_list.html'
-    context_object_nom = 'produit'
+    template_name = 'store/product_list.html'
+    context_object_name = 'product'
 
 
 # Commande views
@@ -157,7 +157,7 @@ def update_order(request, id):
             # update the existing `Band` in the database
             form.save()
             # redirect to the detail page of the `Band` we just updated
-            return redirect('order-list')
+            return redirect('commande-list')
         else:
             form = OrderUpdateForm(instance=obj)
 
@@ -166,7 +166,7 @@ def update_order(request, id):
 
 class OrderListView(ListView):
     model = Commande
-    template_nom = 'store/order_list.html'
+    template_name = 'store/order_list.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -199,8 +199,8 @@ def update_delivery(request, id):
 
 class DeliveryListView(ListView):
     model = Delivery
-    template_nom = 'store/delivery_list.html'
-    context_object_nom = 'delivery'
+    template_name = 'store/delivery_list.html'
+    context_object_name = 'delivery'
 
 
 # Update Stock details
@@ -232,7 +232,7 @@ def update_product(request, id):
     # dictionary for initial data with
     # field noms as keys
     # fetch the object related to passed id
-    obj = get_object_or_404(Stock, id=id)
+    obj = get_object_or_404(Produit, id=id)
     form = ProductForm(request.POST or None, instance=obj)
 
     # pass the object as instance in form
@@ -251,5 +251,5 @@ def update_product(request, id):
 
 class StockListView(ListView):
     model = Stock
-    template_nom = 'store/stock_list.html'
-    context_object_nom = 'stock'
+    template_name = 'store/stock_list.html'
+    context_object_name = 'stock'

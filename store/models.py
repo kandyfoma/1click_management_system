@@ -5,7 +5,7 @@ from users.models import User
 
 class Revendeur(models.Model):
     nom = models.CharField(max_length=120, unique=True)
-    address = models.CharField(max_length=220, blank=True, null=True)
+    adresse = models.CharField(max_length=220, blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
 
     def __str__(self):

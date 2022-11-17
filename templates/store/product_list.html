@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 
-{% block title %}Product List{% endblock title %}
+{% block title %}Produit Liste{% endblock title %}
 
 {% block breadcrumbs %}
     <div class="breadcrumbs">
@@ -9,7 +9,7 @@
                 <div class="col-sm-4">
                     <div class="page-header float-left">
                         <div class="page-title">
-                            <h1>Dashboard</h1>
+                            <h1>Tableau de Bord</h1>
                         </div>
                     </div>
                 </div>
@@ -17,9 +17,9 @@
                     <div class="page-header float-right">
                         <div class="page-title">
                             <ol class="breadcrumb text-right">
-                                <li><a href="#">Dashboard</a></li>
-                                <li><a href="#">Product</a></li>
-                                <li class="active">List</li>
+                                <li><a href="#">Tableau de Bord</a></li>
+                                <li><a href="#">Produit</a></li>
+                                <li class="active">Liste</li>
                             </ol>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="box-title">Product List </h4>
+                    <h4 class="box-title">Produit Liste </h4>
                 </div>
                 <div class="card-body--">
                     <div class="table-stats order-table ov-h">
@@ -42,8 +42,8 @@
                             <thead>
                             <tr>
                                 <th class="serial">#</th>
-                                <th>Name</th>
-                                <th>Price</th>
+                                <th>Nom</th>
+                                <th>Prix</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -52,15 +52,15 @@
                                 {% for product in product %}
                                     <tr>
                                         <td class="serial">{{ forloop.counter }}</td>
-                                        <td>{{ product.name }}</td>
-                                        <td>{{ product.price }}</td>
-                                        <td><a class="btn btn-dark" href="{% url 'update-product' product.id %}">Mise à jour
-                                            Product</a></td>
+                                        <td>{{ product.nom }}</td>
+                                        <td>{{ product.prix }}</td>
+                                        <td><a class="btn btn-dark" href="{% url 'update-produit' product.id %}">Mise à jour
+                                            Produit</a></td>
                                     </tr>
                                 {% endfor %}
                             {% else %}
                                 <tr>
-                                    <td>No Product Data</td>
+                                    <td>No Produit Data</td>
                                 </tr>
                             {% endif %}
                             </tbody>
