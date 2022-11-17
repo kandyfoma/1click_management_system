@@ -152,10 +152,10 @@
                                     {% for order in orders %}
                                         <tr>
                                             <td class="serial">{{ forloop.counter }}</td>
-                                            <td>{{ order.product }}</td>
-                                            <td>{{ order.supplier }}</td>
-                                            <td>{{ order.season }}</td>
-                                            <td>{{ order.department }}</td>
+                                            <td>{{ order.produit }}</td>
+                                            <td>{{ order.revendeur }}</td>
+                                            <td>{{ order.saison }}</td>
+                                            <td>{{ order.departement }}</td>
                                             <td>{{ order.created_date }}</td>
                                             <td>
                                                 {% if order.status == 'pending' %}

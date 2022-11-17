@@ -38,7 +38,7 @@
                     <h4 class="box-title">Commande Liste </h4>
                 </div>
                 <div class="card-body--">
-                    <div class="table-stats order-table ov-h">
+                    <div class="table-stats commande-table ov-h">
                         <table class="table ">
                             <thead>
                             <tr>
@@ -48,7 +48,7 @@
                                 <th>Unit Price</th>
                                 <th>Total Price</th>
                                 <th>Commande Number</th>
-                                <th>Season</th>
+                                <th>Saison</th>
                                 <th>Category</th>
                                 <th>Supplier</th>
                                 <th>Date</th>
@@ -57,36 +57,36 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% if order %}
-                                {% for order in order %}
+                            {% if commande %}
+                                {% for commande in commande %}
                                     <tr>
                                         <td class="serial">{{ forloop.counter }}</td>
-                                        <td>{{ order.produit }}</td>
-                                        <td>{{ order.montant }}</td>
-                                        <td>CDF {{ order.produit.price }}</td>
-                                        <td>CDF {{ order.produit.price |mul:order.montant }}</td>
-                                        <td>{{ order.numero_reference }}</td>
-                                        <td>{{ order.season }}</td>
-                                        <td>{{ order.department }}</td>
-                                        <td>{{ order.revendeur }}</td>
-                                        <td>{{ order.created_date }}</td>
+                                        <td>{{ commande.produit }}</td>
+                                        <td>{{ commande.montant }}</td>
+                                        <td>CDF {{ commande.produit.price }}</td>
+                                        <td>CDF {{ commande.produit.price |mul:commande.montant }}</td>
+                                        <td>{{ commande.numero_reference }}</td>
+                                        <td>{{ commande.saison }}</td>
+                                        <td>{{ commande.departement }}</td>
+                                        <td>{{ commande.revendeur }}</td>
+                                        <td>{{ commande.created_date }}</td>
                                         <td>
-                                            {% if order.status == 'pending' %}
-                                                <a class="btn btn-warning" href="">{{ order.status }}</a>
-                                            {% elif order.status == 'decline' %}
-                                                <a class="btn btn-danger" href="">{{ order.status }}</a>
-                                            {% elif order.status == 'complete' %}
-                                                <a class="btn btn-success" href="">{{ order.status }}</a>
-                                            {% elif order.status == 'approved' %}
-                                                <a class="btn btn-primary" href="">{{ order.status }}</a>
-                                            {% elif order.status == 'bulk' %}
-                                                <a class="btn btn-secondary" href="">{{ order.status }}</a>
+                                            {% if commande.status == 'pending' %}
+                                                <a class="btn btn-warning" href="">{{ commande.status }}</a>
+                                            {% elif commande.status == 'decline' %}
+                                                <a class="btn btn-danger" href="">{{ commande.status }}</a>
+                                            {% elif commande.status == 'complete' %}
+                                                <a class="btn btn-success" href="">{{ commande.status }}</a>
+                                            {% elif commande.status == 'approved' %}
+                                                <a class="btn btn-primary" href="">{{ commande.status }}</a>
+                                            {% elif commande.status == 'bulk' %}
+                                                <a class="btn btn-secondary" href="">{{ commande.status }}</a>
                                             {% else %}
-                                                <a class="btn btn-info" href="">{{ order.status }}</a>
+                                                <a class="btn btn-info" href="">{{ commande.status }}</a>
                                             {% endif %}
                                         </td>
-                                        {% if not order.status == 'complete' %}
-                                            <td><a class="btn btn-dark" href="{% url 'update-order' order.id %}">Mise à jour
+                                        {% if not commande.status == 'complete' %}
+                                            <td><a class="btn btn-dark" href="{% url 'update-commande' commande.id %}">Mise à jour
                                                 Commande</a></td>
                                         {% else %}
                                             <td><a class="btn btn-light" href="" disabled>Commande

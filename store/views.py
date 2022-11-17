@@ -118,23 +118,23 @@ def create_order(request):
         forms = OrderForm(request.POST)
         if forms.is_valid():
             revendeur = forms.cleaned_data['revendeur']
-            product = forms.cleaned_data['produit']
-            amount = forms.cleaned_data['montant']
-            order_number = forms.cleaned_data['numero_reference']
-            department = forms.cleaned_data['department']
+            produit = forms.cleaned_data['produit']
+            montant = forms.cleaned_data['montant']
+            numero_reference = forms.cleaned_data['numero_reference']
+            departement = forms.cleaned_data['departement']
             saison = forms.cleaned_data['saison']
             cree_par = request.user
             Commande.objects.create(
                 revendeur=revendeur,
-                product=product,
-                amount=amount,
-                order_number=order_number,
-                department=department,
+                produit=produit,
+                montant=montant,
+                numero_reference=numero_reference,
+                departement=departement,
                 saison=saison,
                 cree_par=cree_par,
                 status='pending'
             )
-            return redirect('order-list')
+            return redirect('commande-list')
     context = {
         'form': forms
     }
