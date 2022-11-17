@@ -242,9 +242,9 @@ def update_product(request, id):
             # update the existing `Stock` in the database
             form.save()
             # redirect to the detail page of the `Stock` we just updated
-            return redirect('stock-list')
+            return redirect('produit-list')
         else:
-            form = StockForm(instance=obj)
+            form = ProductForm(instance=obj)
 
     return render(request, 'store/updateProduct.html', {'form': form})
 
