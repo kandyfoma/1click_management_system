@@ -44,8 +44,8 @@
                             <tr>
                                 <th class="serial">#</th>
                                 <th>Produit</th>
-                                <th>Monthly Stock</th>
-                                <th>Availability</th>
+                                <th>Stock du Mois</th>
+                                <th>Stock Disponible</th>
                                 <th>Date</th>
                                 <th>Action</th>
                             </tr>
@@ -55,9 +55,9 @@
                                 {% for stock in stock %}
                                     <tr>
                                         <td class="serial">{{ forloop.counter }}</td>
-                                        <td>{{ stock.product }}</td>
-                                        <td>{{ stock.initial_in_stock }}</td>
-                                        <td>{{ stock.availability }}</td>
+                                        <td>{{ stock.produit }}</td>
+                                        <td>{{ stock.stock_initiale }}</td>
+                                        <td>{{ stock.disponibilite }}</td>
                                         <td>{{ stock.created_date }}</td>
                                         <td><a class="btn btn-dark" href="{% url 'update-stock' stock.id %}">Mise à jour
                                             Stock</a></td>

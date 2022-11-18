@@ -53,10 +53,11 @@
                                 {% for delivery in delivery %}
                                     <tr>
                                         <td class="serial">{{ forloop.counter }}</td>
-                                        <td>{{ delivery.order }}</td>
-                                        <td>{{ delivery.courier_name }}</td>
+                                        <td>{{ delivery.commande }}</td>
+                                        <td>{{ delivery.courier_nom }}</td>
                                         <td>{{ delivery.created_date }}</td>
-                                        <td><a class="btn btn-dark" href="{% url 'update-delivery' delivery.id %}">Mise à jour
+                                        <td><a class="btn btn-dark" href="{% url 'update-delivery' delivery.id %}">Mise
+                                            à jour
                                             Order</a></td>
                                     </tr>
                                 {% endfor %}
