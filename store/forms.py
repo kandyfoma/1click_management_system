@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Saison, Departement, Produit, Commande, Delivery, Stock
+from .models import Saison, Departement, Produit, Commande, Delivery, Stock, Finance
 
 
 class RevendeurForm(forms.Form):
@@ -45,6 +45,17 @@ class ProductForm(forms.ModelForm):
         widgets = {
             'nom': forms.TextInput(attrs={'class': 'form-control', 'id': 'nom'}),
             'prix': forms.NumberInput(attrs={'class': 'form-control', 'id': 'prix'})
+        }
+
+
+class FinanceForm(forms.ModelForm):
+    class Meta:
+        model = Finance
+        fields = ['transaction', 'client', 'montant_payement']
+        widgets = {
+            'transaction': forms.TextInput(attrs={'class': 'form-control', 'id': 'nom'}),
+            'client': forms.TextInput(attrs={'class': 'form-control', 'id': 'nom'}),
+            'montant_payement': forms.NumberInput(attrs={'class': 'form-control', 'id': 'prix'})
         }
 
 

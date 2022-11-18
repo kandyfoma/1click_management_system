@@ -18,6 +18,7 @@ from .views import (
     OrderListView,
     DeliveryListView,
     StockListView,
+    FinanceListView,
 )
 
 urlpatterns = [
@@ -26,6 +27,7 @@ urlpatterns = [
     path('create-department/', create_department, name='create-department'),
     path('create-produit/', create_product, name='create-produit'),
     path('create-commande/', create_order, name='create-commande'),
+    path('create-finance/', create_finance, name='create-finance'),
 
     path('update-delivery/<int:id>/', update_delivery, name='update-delivery'),
     path('update-produit/<int:id>/', update_product, name='update-produit'),
@@ -39,4 +41,5 @@ urlpatterns = [
     path('commande-list/', OrderListView.as_view(), name='commande-list'),
     path('delivery-list/', DeliveryListView.as_view(), name='delivery-list'),
     path('stock-list/', StockListView.as_view(), name='stock-list'),
+    path('finance-list/', FinanceListView.as_view(), name='finance-list'),
 ]

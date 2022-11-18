@@ -11,8 +11,8 @@ from .models import (
     Produit,
     Commande,
     Delivery,
-    Stock
-)
+    Stock,
+    Finance)
 from .forms import (
     RevendeurForm,
     SaisonForm,
@@ -21,7 +21,7 @@ from .forms import (
     OrderForm,
     DeliveryForm,
     StockForm,
-    OrderUpdateForm)
+    OrderUpdateForm, FinanceForm)
 
 
 # Revendeur views
@@ -102,6 +102,20 @@ def create_product(request):
         'form': forms
     }
     return render(request, 'store/addProduct.html', context)
+
+# Produit views
+@login_required(login_url='login')
+def create_finance(request):
+    forms = FinanceForm()
+    if request.method == 'POST':
+        forms = FinanceForm(request.POST)
+        if forms.is_valid():
+            forms.save()
+            return redirect('finance-list')
+    context = {
+        'form': forms
+    }
+    return render(request, 'store/addFinance.html', context)
 
 
 class ProductListView(ListView):
@@ -253,3 +267,9 @@ class StockListView(ListView):
     model = Stock
     template_name = 'store/stock_list.html'
     context_object_name = 'stock'
+
+
+class FinanceListView(ListView):
+    model = Finance
+    template_name = 'store/finance_list.html'
+    context_object_name = 'finance'

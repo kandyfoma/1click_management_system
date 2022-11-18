@@ -17,7 +17,7 @@ class Saison(models.Model):
     description = models.CharField(max_length=220, blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
     cree_par = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
-                                   related_name='cree_par_saison')
+                                 related_name='cree_par_saison')
     updated_by = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
                                    related_name='updated_by_saison')
 
@@ -29,7 +29,7 @@ class Departement(models.Model):
     nom = models.CharField(max_length=120, unique=True)
     created_date = models.DateField(auto_now_add=True)
     cree_par = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
-                                   related_name='cree_par_departement')
+                                 related_name='cree_par_departement')
     updated_by = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
                                    related_name='updated_by_departement')
 
@@ -42,7 +42,7 @@ class Produit(models.Model):
     prix = models.PositiveIntegerField()
     created_date = models.DateField(auto_now_add=True)
     cree_par = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
-                                   related_name='cree_par_produit')
+                                 related_name='cree_par_produit')
     updated_by = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
                                    related_name='updated_by_produit')
 
@@ -68,7 +68,7 @@ class Commande(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICE)
     created_date = models.DateField(auto_now_add=True)
     cree_par = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
-                                   related_name='cree_par_order')
+                                 related_name='cree_par_order')
     updated_by = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
                                    related_name='updated_by_order')
 
@@ -81,7 +81,7 @@ class Delivery(models.Model):
     courier_nom = models.CharField(max_length=120, blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
     cree_par = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
-                                   related_name='cree_par_delivery')
+                                 related_name='cree_par_delivery')
     updated_by = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
                                    related_name='updated_by_delivery')
 
@@ -95,9 +95,23 @@ class Stock(models.Model):
     disponibilite = models.PositiveIntegerField(blank=True, null=True)
     created_date = models.DateField(auto_now_add=True)
     cree_par = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
-                                   related_name='cree_par_stock')
+                                 related_name='cree_par_stock')
     updated_by = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
                                    related_name='updated_by_stock')
 
     def __str__(self):
         return self.produit.nom
+
+
+class Finance(models.Model):
+    transaction = models.CharField(max_length=120, blank=True, null=True)
+    client = models.CharField(max_length=120, blank=True, null=True)
+    montant_payement = models.PositiveIntegerField(blank=True, null=True)
+    created_date = models.DateField(auto_now_add=True)
+    cree_par = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
+                                 related_name='cree_par_finance')
+    updated_by = models.ForeignKey('users.User', on_delete=models.SET_NULL, blank=True, null=True,
+                                   related_name='updated_by_finance')
+
+    def __str__(self):
+        return self.client
