@@ -6,6 +6,7 @@ from .views import (
     create_department,
     create_product,
     create_order,
+    create_finance,
     update_delivery,
     update_order,
     update_stock,
