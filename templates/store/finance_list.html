@@ -47,7 +47,7 @@
                                 <th>Client</th>
                                 <th>Montant Payement</th>
                                 <th>Date</th>
-                                <th>Action</th>
+{#                                <th>Action</th>#}
                             </tr>
                             </thead>
                             <tbody>
@@ -59,8 +59,8 @@
                                         <td>{{ finance.client }}</td>
                                         <td>{{ finance.montant_payement }}</td>
                                         <td>{{ finance.created_date }}</td>
-                                        <td><a class="btn btn-dark" href="{% url 'update-finance' finance.id %}">Mise à jour
-                                            Finance</a></td>
+{#                                        <td><a class="btn btn-dark" href="{% url 'update-finance' finance.id %}">Mise à jour#}
+{#                                            Finance</a></td>#}
                                     </tr>
                                 {% endfor %}
                             {% else %}
