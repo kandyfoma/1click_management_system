@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import django_on_heroku
+import git
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
