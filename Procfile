@@ -1,1 +1,1 @@
-web: gunicorn one-click-management-systeme.wsgi
+web: gunicorn one_click_management_systeme.app
