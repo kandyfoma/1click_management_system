@@ -1,1 +1,1 @@
-web: gunicorn one_click_management_system.wsgi:application --log-file -
+web: gunicorn one-click-management-systeme.wsgi:application --log-file -
