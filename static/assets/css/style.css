@@ -2439,8 +2439,8 @@ footer.site-footer {
     background: white; }
   .right-panel .menutoggle {
     float: right; }
-  .right-panel .navbar-header {
-    padding: 0; }
+  /*.right-panel .navbar-header {*/
+  /*  padding: 0; }*/
   .right-panel header.header {
     position: static; }
     .right-panel header.header .top-left {
@@ -2448,7 +2448,7 @@ footer.site-footer {
       top: 0;
       left: 0;
       right: 0;
-      padding: 0 30px;
+      /*padding: 0 30px;*/
       z-index: 999;
       border-bottom: 1px solid #dcdcdc; }
     .right-panel header.header .top-right {
